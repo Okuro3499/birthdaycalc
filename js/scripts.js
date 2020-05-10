@@ -6,4 +6,11 @@ function getAkanName(){
   var myGender = document.getElementsByName("gender");
   var dateOfBirth = new Date(myBirthday);
   var dayOfTheWeek = dateOfBirth.getDay();
+  var CC, MM, YY;
+  if (!!d.valueOf()) {
+    YY = d.getFullyear();
+    MM = d.getMonth();
+    CC = d.getDate();
+  } else {/*Invalid date */}
+  var daycalculate = parseInt(((CC/4)-2*CC-1)+((5*YY/4))+((26*(MM+1)/10))+DD)%7
 }
