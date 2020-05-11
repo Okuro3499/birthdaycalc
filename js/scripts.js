@@ -6,13 +6,15 @@ function getAkanName(){
   var myGender = document.getElementById("gender").value;
   var dateOfBirth = new Date(myBirthdate);
   var dayOfTheWeek = dateOfBirth.getDay();
-  var CC, MM, YY;
+  var CC, MM, YY, DD;
   if (!!d.valueOf()) {
     YY = d.getFullyear();
     MM = d.getMonth();
     CC = d.getDate();
+    DD = d.getDay();
   } else {/*Invalid date */}
-  var daycalculate = parseInt(((CC/4)-2*CC-1)+((5*YY/4))+((26*(MM+1)/10))+DD)%7;
+  var daycalculate = parseInt(((CC / 4) - 2 * CC - 1) + ((5 * YY / 4)) + ((26 * (MM + 1) / 10)) + DD) % 7;
+  dayCalculate = dayCalculate + 1;
   console.log(daycalculate);
   if (document.getElementById('maleAkannames').checked) {
     myGender = document.getElementById('maleAkannames').value;
