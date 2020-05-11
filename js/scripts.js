@@ -3,8 +3,8 @@ function getAkanName(){
   var maleAkannames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
   var femaleAkannames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"]
   var myBirthday = document.getElementById("myBirthDate").value;
-  var myGender = document.getElementsByName("gender");
-  var dateOfBirth = new Date(myBirthday);
+  var myGender = document.getElementById("gender").value;
+  var dateOfBirth = new Date(myBirthdate);
   var dayOfTheWeek = dateOfBirth.getDay();
   var CC, MM, YY;
   if (!!d.valueOf()) {
@@ -22,5 +22,5 @@ function getAkanName(){
     myGender = document.getElementById('femaleAkannames').value;
     alert(" You were born on " + dayOfTheWeek[dayCalculate] + " Your name is " + femaleAkannames[dayCalculate]);
   }
-
+  document.getElementById('message').innerHTML = dayOfTheWeek[dayCalculate];
 }
