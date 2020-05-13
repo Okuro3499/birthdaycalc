@@ -1,26 +1,35 @@
-function getAkanname(){
-  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  var male = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
-  var female = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"]
-  var myBirthday = document.getElementById('birth').value;
-  myBirthday= myBirthday.split("/");
-  var day =parseInt(myBirthday[1]);
-  var month= parseInt(myBirthday[0]);
-  var year= parseInt(myBirthday[2]);
-  var century = parseInt(myBirthday[2].substring(0,2));
-  console.log(day, month, year, century );
-  var myGender = document.getElementById('genders').value;
+let isDoBValid = function (dob){
+  let today = new Date().toLocaleDateString('en-GB')
+  today = today.split(',')[0];
+  while(today.includes('/')){
+    today = today.replace(/\//, '-');
+  }
+  today = today.split('-').reverse().join('-');
+  return dob < today;
+}
 
-  var dayCalculate = Math.floor(parseInt(((century / 4) - 2 * century - 1) + ((5 * year / 4)) + ((26 * (month + 1) / 10)) + day) % 7);
-  dayCalculate= dayCalculate - 2;
-  console.log(dayCalculate)
-  if (document.getElementById('male').checked) {
-    myGender = document.getElementById('male').value;
-    alert("You were born on " + days[dayCalculate] + " Your name is " + male[dayCalculate]);
+let getAkanName = function(){
+  let dweek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      male = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"],
+      female = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+  let date = document.querySelector('.date').value;
+  console.log(date);
+  let gender = document.querySelector('input[name=gender]:checked').value;
+  // get dob details when dob is valid 2005-05-24
+  if (isDoBValid(date)){
+    let date = document.querySelector('.date').value,
+        result = document.querySelector('.day-name'),
+        dobDetails = date.split('-'),
+        year = parseInt(dobDetails[0].substring(2)),
+        century = parseInt(dobDetails[0].substring(0,2)),
+        month = parseInt(dobDetails[1]),
+        day = parseInt(dobDetails[2]),
+        dayCalculate = Math.floor(parseInt(((century / 4) - 2 * century - 1) + ((5 * year / 4)) + ((26 * (month + 1) / 10)) + day) % 7);
+    dayCalculate -= 1;
+    if (gender == "male") {
+      result.innerHTML = "You were born on " + dweek[dayCalculate] + " Your name is " + male[dayCalculate];
+    } else {
+      result.innerHTML = "You were born on " + dweek[dayCalculate] + " Your name is " + female[dayCalculate];
+    }
   }
-  if (document.getElementById('female').checked) {
-    myGender = document.getElementById('female').value;
-    alert(" You were born on " + days[dayCalculate] + " Your name is " + female[dayCalculate]);
-  }
-  document.getElementById('message').innerHTML = days[dayCalculate];
 }

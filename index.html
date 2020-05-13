@@ -4,17 +4,16 @@
   <meta charset="utf-8">
   <title>BIRTHDAY CALCULATOR</title>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<script src="js/scripts.js"></script>
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#"></a>
-      </div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"></a>
     </div>
+  </div>
   <div class="jumbotron text-center">
-  <h2 class="akan-heading">AKAN <span class="heading-name">NAMES</span></h2>
+    <h2 class="akan-heading">AKAN <span class="heading-name">NAMES</span></h2>
   </div>
   <p>This page Calculates the day of the week you were born after you input your birthday and based on your gender outputs your Akan Name</p>
   <p>Here are some Akan Names</p>
@@ -53,30 +52,26 @@
             <label class="label">Birthday</label>
             <div class="input-group mb15">
               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              <input type="date" placeholder="mm/dd/yyyy" id="birth" class="form-control" autocomplete="off"/>
+              <input type="date" placeholder="mm/dd/yyyy" name="dob" class="date" autocomplete="off"/>
             </div>
           </div>
           <div class="form-group mb15">
-            <label class="label">Gender</label>
+            <label>Gender</label>
             <div class="rdio rdio-default fs11">
-              <div class="input" id="genders">
-              <input type="radio" name="gender" id="male" value="Male">
-              <label for="male">&nbsp;&nbsp;Male</label>
+              <div class="genders">
+                <input type="radio" name="gender" value="male"> Male
+                <div class="rdio rdio-default fs11">
+                  <input type="radio" name="gender"  value="female"> Female
+                </div>
+              </div>
             </div>
-            <div class="rdio rdio-default fs11">
-              <input type="radio" name="gender" id="female" value="Female" >
-              <label for="female">&nbsp;&nbsp;Female</label>
-            </div>
+            <button type="submit" onclick="getAkanName()">Get Akan Name</button>
+            <button type="reset" onclick="clearAkanMessage()">Cancel</button>
+            <p><span class="day-name"></span></p>
           </div>
-          <button type="submit" onclick="getAkanName(); return false;" class="btn btn-primary btn-xs"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Get Akan Name</button>
-          <button type="reset" onclick="clearAkanMessage(); return false;" class="btn btn-default btn-xs"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>
-        </form>
-      </div>
-      <hr>
-      <div class="your-akan-name">
-        <p id="message" class="output"></p>
+        </form>  
       </div>
     </div>
-  </div>
+    <script src="js/scripts.js"></script>
   </body>
   </html>
