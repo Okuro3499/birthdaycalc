@@ -9,13 +9,14 @@ let isDoBValid = function (dob){
 }
 
 let getAkanName = function(){
+  console.log("here")
   let dweek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       male = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"],
       female = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
   let date = document.querySelector('.date').value;
   console.log(date);
   let gender = document.querySelector('input[name=gender]:checked').value;
-  // get dob details when dob is valid 2005-05-24
+  
   if (isDoBValid(date)){
     let date = document.querySelector('.date').value,
         result = document.querySelector('.day-name'),
@@ -27,9 +28,9 @@ let getAkanName = function(){
         dayCalculate = Math.floor(parseInt(((century / 4) - 2 * century - 1) + ((5 * year / 4)) + ((26 * (month + 1) / 10)) + day) % 7);
     dayCalculate -= 1;
     if (gender == "male") {
-      result.innerHTML = "You were born on " + dweek[dayCalculate] + " Your name is " + male[dayCalculate];
+      alert("You were born on " + dweek[dayCalculate] + " Your name is " + male[dayCalculate]);
     } else {
-      result.innerHTML = "You were born on " + dweek[dayCalculate] + " Your name is " + female[dayCalculate];
+      alert("You were born on " + dweek[dayCalculate] + " Your name is " + female[dayCalculate]);
     }
   }
 }
