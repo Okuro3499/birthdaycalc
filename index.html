@@ -52,16 +52,16 @@
             <label class="label">Birthday</label>
             <div class="input-group mb15">
               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              <input type="date" placeholder="mm/dd/yyyy" name="dob" class="date" autocomplete="off"/>
+              <input type="date" placeholder="mm/dd/yyyy" name="dob" class="date" required autocomplete="off"/>
             </div>
           </div>
           <div class="form-group mb15">
             <label>Gender</label>
             <div class="rdio rdio-default fs11">
               <div class="genders">
-                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="male" required> Male
                 <div class="rdio rdio-default fs11">
-                  <input type="radio" name="gender"  value="female"> Female
+                  <input type="radio" name="gender"  value="female" required> Female
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@
             <button type="reset" onclick="clearAkanMessage()">Cancel</button>
             <p><span class="day-name"></span></p>
           </div>
-        </form>  
+        </form>
       </div>
     </div>
     <script src="js/scripts.js"></script>
